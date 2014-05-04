@@ -44,9 +44,9 @@ float direction = 1.0;
 
 // Lights & Materials
 GLfloat ambient[] = {0.2, 0.2, 0.2, 1.0};
-GLfloat position[] = {0.0, 0.0, 2.0, 1.0};
+GLfloat position[] = {0.0, 0.3, 2.0, 1.0};
 GLfloat mat_diffuse[] = {0.6, 0.6, 0.6, 1.0};
-GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
+GLfloat mat_specular[] = {0.7, 0.7, 0.7, 1.0};
 GLfloat mat_shininess[] = {50.0};
 
 static GLScreenCapturer screenshot("screenshot-%d.ppm");
@@ -76,8 +76,8 @@ void setupRC()
     tbAnimate(GL_TRUE);
     
     // Place Camera
-    camRotX = 350.0f;
-    camRotY = 680.0f;
+    camRotX = 0.0f;
+    camRotY = 0.0f;
     camPosX = 0.0f;
     camPosY = 0.0f;
     camPosZ = -10.5f;
@@ -92,10 +92,26 @@ void setupRC()
 void setCamera( void )
 {
     glTranslatef(0, 0, camPosZ);
-    glRotatef(camRotX, 1, 0, 0);
-    glRotatef(camRotY, 0, 1, 0);
 }
 
+void drawFloor()
+{
+    glBegin(GL_QUADS);
+    int unitX = 8;
+    int unitY = 8;
+    int width1, width2;
+    width2 = width1 = 16;
+    GLfloat depth = -3.0f;
+    for (int x = -(width1/2); x<(width1/2); ++x) {
+      for (int y = -(width2/2); y<(width2/2); ++y) {
+        glVertex3f( x*unitX, depth, y*unitY);
+        glVertex3f((x+1)*unitX, depth, y*unitY);
+        glVertex3f((x+1)*unitX, depth, (y+1)*unitY);
+        glVertex3f( x*unitX, depth, (y+1)*unitY);
+      }
+    }
+    glEnd();
+}
 void drawSelectableTeapots( void )
 {
     float currentColor[4];
@@ -107,22 +123,24 @@ void drawSelectableTeapots( void )
     // Initialize the name stack
     glInitNames();
     glPushName(0);
-    
+    drawFloor();
     shaderProg->enable();
 
     //pass the current time and light direction to the shaders
     shaderProg->set_uniform_1f("time", glutGet(GLUT_ELAPSED_TIME));
     shaderProg->set_uniform_3f("lightDir", 2.f, -1.f, -0.3f);
     // Draw two teapots next to each other in z axis
+
+    
     glPushMatrix();
     {
-    
+        
         if( isTeapot1_selected )
             glMaterialfv(GL_FRONT, GL_DIFFUSE, selectedColor);
         else
             glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
         glLoadName(0);
-        glutSolidTeapot(2.5);
+        glutSolidSphere(2.5, 40, 40);
 
         if( isTeapot2_selected )
             glMaterialfv(GL_FRONT, GL_DIFFUSE, selectedColor);
@@ -130,7 +148,7 @@ void drawSelectableTeapots( void )
             glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
         glLoadName(1);
         glTranslatef(0,0,5);
-        glutSolidTeapot(1.5);
+        glutSolidSphere(0.5, 40, 40);
     }
     glPopMatrix();
     shaderProg->disable();
