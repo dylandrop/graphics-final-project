@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp
-GLSLProgram.h
-/Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.h
-assert.h
--
-utils/macros.h
-/Users/dylandrop/Downloads/pa3_starter/src/utils/macros.h
-
 /Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.h
 cstdio
 -
@@ -21,24 +13,6 @@ cstdlib
 -
 GL/glew.h
 -
-
-/Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp
-GLScreenCapturer.h
-/Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.h
-cstring
--
-cstdarg
--
-cstdlib
--
-GLUT/glut.h
--
-GL/glut.h
--
-fstream
--
-utils/macros.h
-/Users/dylandrop/Downloads/pa3_starter/src/utils/macros.h
 
 /Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.h
 stdint.h
@@ -67,38 +41,24 @@ trackball.h
 /Users/dylandrop/Downloads/pa3_starter/src/trackball.h
 shader.h
 /Users/dylandrop/Downloads/pa3_starter/src/shader.h
+vector
+-
+math.h
+-
+time.h
+-
+stdlib.h
+-
 GLSLProgram.h
 /Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.h
 
 /Users/dylandrop/Downloads/pa3_starter/src/shader.h
 
-/Users/dylandrop/Downloads/pa3_starter/src/trackball.cpp
-GLUT/glut.h
--
-GL/glut.h
--
-math.h
--
-assert.h
--
-trackball.h
-/Users/dylandrop/Downloads/pa3_starter/src/trackball.h
-
 /Users/dylandrop/Downloads/pa3_starter/src/trackball.h
 GLUT/glut.h
 -
 GL/glut.h
 -
-
-/Users/dylandrop/Downloads/pa3_starter/src/utils/macros.h
-stdio.h
--
-stdlib.h
--
-assert.h
--
-conts-config.h
-/Users/dylandrop/Downloads/pa3_starter/src/utils/conts-config.h
 
 /usr/local/include/GL/glew.h
 stddef.h
