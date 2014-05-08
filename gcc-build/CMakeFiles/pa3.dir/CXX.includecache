@@ -22,10 +22,6 @@ OpenGL/gl.h
 GL/glut.h
 -
 
-/Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp
-Vector3.h
-/Users/dylandrop/Downloads/pa3_starter/src/Vector3.h
-
 /Users/dylandrop/Downloads/pa3_starter/src/Vector3.h
 math.h
 -
