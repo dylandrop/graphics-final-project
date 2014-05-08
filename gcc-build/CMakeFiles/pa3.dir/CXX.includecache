@@ -30,6 +30,12 @@ GLUT/glut.h
 GL/glut.h
 -
 
+/Users/dylandrop/Downloads/pa3_starter/src/Vertex3.h
+GLUT/glut.h
+-
+GL/glut.h
+-
+
 /Users/dylandrop/Downloads/pa3_starter/src/main.cpp
 stdlib.h
 -
@@ -47,10 +53,14 @@ trackball.h
 /Users/dylandrop/Downloads/pa3_starter/src/trackball.h
 shader.h
 /Users/dylandrop/Downloads/pa3_starter/src/shader.h
+iostream
+-
 vector
 -
 Vector3.h
 /Users/dylandrop/Downloads/pa3_starter/src/Vector3.h
+Vertex3.h
+/Users/dylandrop/Downloads/pa3_starter/src/Vertex3.h
 math.h
 -
 time.h

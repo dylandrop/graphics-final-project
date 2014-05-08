@@ -33,7 +33,9 @@ add_executable(pa3
     src/shader.h
     src/trackball.h         src/trackball.cpp
     src/GLSLProgram.h       src/GLSLProgram.cpp
-    src/GLScreenCapturer.h  src/GLScreenCapturer.cpp)
+    src/GLScreenCapturer.h  src/GLScreenCapturer.cpp
+    src/Vector3.h           src/Vector3.cpp
+    src/Vertex3.h)
 target_link_libraries(pa3
     ${GLUT_LIBRARIES}       ${OPENGL_LIBRARIES}
     ${GLEW_LIBRARY})
