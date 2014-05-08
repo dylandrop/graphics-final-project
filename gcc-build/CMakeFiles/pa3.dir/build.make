@@ -144,12 +144,36 @@ CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.provides: CMakeFiles/pa3.dir/src/G
 
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.provides.build: CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o
 
+CMakeFiles/pa3.dir/src/Vector3.cpp.o: CMakeFiles/pa3.dir/flags.make
+CMakeFiles/pa3.dir/src/Vector3.cpp.o: ../src/Vector3.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/Vector3.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/Vector3.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp
+
+CMakeFiles/pa3.dir/src/Vector3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/Vector3.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp > CMakeFiles/pa3.dir/src/Vector3.cpp.i
+
+CMakeFiles/pa3.dir/src/Vector3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/Vector3.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp -o CMakeFiles/pa3.dir/src/Vector3.cpp.s
+
+CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires:
+.PHONY : CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires
+
+CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides: CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides.build
+.PHONY : CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides
+
+CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides.build: CMakeFiles/pa3.dir/src/Vector3.cpp.o
+
 # Object files for target pa3
 pa3_OBJECTS = \
 "CMakeFiles/pa3.dir/src/main.cpp.o" \
 "CMakeFiles/pa3.dir/src/trackball.cpp.o" \
 "CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o" \
-"CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o"
+"CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o" \
+"CMakeFiles/pa3.dir/src/Vector3.cpp.o"
 
 # External object files for target pa3
 pa3_EXTERNAL_OBJECTS =
@@ -158,6 +182,7 @@ pa3: CMakeFiles/pa3.dir/src/main.cpp.o
 pa3: CMakeFiles/pa3.dir/src/trackball.cpp.o
 pa3: CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o
 pa3: CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o
+pa3: CMakeFiles/pa3.dir/src/Vector3.cpp.o
 pa3: CMakeFiles/pa3.dir/build.make
 pa3: /usr/local/lib/libGLEW.dylib
 pa3: CMakeFiles/pa3.dir/link.txt
@@ -172,6 +197,7 @@ CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/main.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/trackball.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.requires
+CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires
 .PHONY : CMakeFiles/pa3.dir/requires
 
 CMakeFiles/pa3.dir/clean:

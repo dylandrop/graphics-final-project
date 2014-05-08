@@ -3,6 +3,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/pa3.dir/src/trackball.cpp.o"
   "CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o"
   "CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o"
+  "CMakeFiles/pa3.dir/src/Vector3.cpp.o"
   "pa3.pdb"
   "pa3"
 )

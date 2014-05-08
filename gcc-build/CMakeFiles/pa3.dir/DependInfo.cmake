@@ -6,6 +6,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o"
   "/Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o"
+  "/Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/Vector3.cpp.o"
   "/Users/dylandrop/Downloads/pa3_starter/src/main.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/main.cpp.o"
   "/Users/dylandrop/Downloads/pa3_starter/src/trackball.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/trackball.cpp.o"
   )

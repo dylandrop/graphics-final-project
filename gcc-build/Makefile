@@ -162,6 +162,30 @@ src/GLScreenCapturer.cpp.s:
 	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s
 .PHONY : src/GLScreenCapturer.cpp.s
 
+src/Vector3.o: src/Vector3.cpp.o
+.PHONY : src/Vector3.o
+
+# target to build an object file
+src/Vector3.cpp.o:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/Vector3.cpp.o
+.PHONY : src/Vector3.cpp.o
+
+src/Vector3.i: src/Vector3.cpp.i
+.PHONY : src/Vector3.i
+
+# target to preprocess a source file
+src/Vector3.cpp.i:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/Vector3.cpp.i
+.PHONY : src/Vector3.cpp.i
+
+src/Vector3.s: src/Vector3.cpp.s
+.PHONY : src/Vector3.s
+
+# target to generate assembly for a file
+src/Vector3.cpp.s:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/Vector3.cpp.s
+.PHONY : src/Vector3.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -225,6 +249,9 @@ help:
 	@echo "... src/GLScreenCapturer.o"
 	@echo "... src/GLScreenCapturer.i"
 	@echo "... src/GLScreenCapturer.s"
+	@echo "... src/Vector3.o"
+	@echo "... src/Vector3.i"
+	@echo "... src/Vector3.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
