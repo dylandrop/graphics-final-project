@@ -44,6 +44,8 @@ char titleString[150];
 bool isTeapot1_selected = false;
 bool isTeapot2_selected = false;
 bool keydown = false;
+bool up_or_down = false;
+float up_or_down_direction = 1.0;
 float direction = 1.0;
 
 // Lights & Materials
@@ -360,6 +362,14 @@ void keyboard( unsigned char key, int x, int y )
         printf("save current screen\n");
         screenshot.capture();
         break;
+    case 'l':
+        up_or_down = true; //rotate left
+        up_or_down_direction = -1.0f;
+        break;
+    case 'o':
+        up_or_down = true; //rotate right
+        up_or_down_direction = 1.0f;
+        break;
     }
 }
 
@@ -367,6 +377,7 @@ void keyboard( unsigned char key, int x, int y )
 void keyup(unsigned char key, int x, int y)
 {
     keydown = false;
+    up_or_down = false;
 }
 
 void processSelection(int xPos, int yPos)
@@ -522,6 +533,11 @@ void Idle(void)
         glTranslatef(0, 0, camPosZ);
         glRotatef(1.0 * direction, 0.0, 1.0, 0.0);
         glTranslatef(0, 0, -camPosZ);
+    }
+    if(up_or_down){
+        glTranslatef(0, 0, camPosZ);
+        glRotatef(1.0 * up_or_down_direction, 1.0, 0.0, 0.0);
+        glTranslatef(0, 0, -camPosZ);   
     }
     
 
