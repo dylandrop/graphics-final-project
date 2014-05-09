@@ -64,126 +64,129 @@ static GLSLProgram* checkbp = NULL;
 static GLSLProgram* bonus = NULL;
 
 
-#define NUM_X_VERTS       140
-#define NUM_Z_VERTS       140
-#define NUM_VERTS         NUM_X_VERTS*NUM_Z_VERTS
+#define TOTAL_I_VERTS       140
+#define TOTAL_J_VERTS       140
+#define TOTAL_VERTS         TOTAL_I_VERTS*TOTAL_J_VERTS
 #define VERT_DISTANCE     0.05
 #define BODY_SCALE_FACTOR 2.0
-#define BODY_SIZE         NUM_X_VERTS*VERT_DISTANCE*BODY_SCALE_FACTOR
+#define BODY_SIZE         TOTAL_I_VERTS*VERT_DISTANCE*BODY_SCALE_FACTOR
+#define dT 0.003f
 
-#define VERT_WEIGHT       0.0002
-GLuint * Indices;
-int NumIndices;   //size of the index array
-float initialtime = 0.0f;  //note: this need not be the real time
-bool  g_bExcitersInUse = true;
+#define NORMALIZATION_FACTOR       0.0002
+GLuint * vIdxs;
+float initialtime = 0.0f;
+float sampledtime = 0.0f;
+int indexCount;
+bool jump = true;
+int activeIndex;
+int newIndex;
 
 Vertex3 * verts;
 
 
 void initWater()
 {
-    verts = new Vertex3[NUM_VERTS];
-    Indices = new GLuint[(NUM_VERTS - (NUM_X_VERTS + NUM_Z_VERTS - 1))*6]; 
+    verts = new Vertex3[TOTAL_VERTS];
+    vIdxs = new GLuint[(TOTAL_VERTS - (TOTAL_I_VERTS + TOTAL_J_VERTS - 1))*6]; 
     int count = 0;
-    for (int i = 0; i < NUM_X_VERTS; i++) {
-        for (int j = 0; j < NUM_Z_VERTS; j++) 
+    for (int i = 0; i < TOTAL_I_VERTS; i++) {
+        for (int j = 0; j < TOTAL_J_VERTS; j++) 
         {
-            verts[i+j*NUM_X_VERTS] = Vertex3::Make(VERT_DISTANCE*float(i)*BODY_SCALE_FACTOR, 0.0, 
+            int thisVert = i+j*TOTAL_I_VERTS;
+
+            verts[thisVert] = Vertex3::Make(VERT_DISTANCE*float(i)*BODY_SCALE_FACTOR, 0.0, 
                 VERT_DISTANCE*float(j)*BODY_SCALE_FACTOR, 0, 1, 0, 
                 0, false);
 
-            if ((i < NUM_X_VERTS-1) && (j < NUM_Z_VERTS-1))
+            if ((i < TOTAL_I_VERTS-1) && (j < TOTAL_J_VERTS-1))
             {
-                int thisVert = i+j*NUM_X_VERTS;
-                
-                Indices[count++] = thisVert;
-                Indices[count++] = thisVert + 1;
-                Indices[count++] = thisVert + NUM_X_VERTS + 1;
 
-                Indices[count++] = thisVert;
-                Indices[count++] = thisVert + NUM_X_VERTS + 1;
-                Indices[count++] = thisVert + NUM_X_VERTS;
+                vIdxs[count++] = thisVert;
+                vIdxs[count++] = thisVert + 1;
+                vIdxs[count++] = thisVert + TOTAL_I_VERTS + 1;
+
+                vIdxs[count++] = thisVert;
+                vIdxs[count++] = thisVert + TOTAL_I_VERTS + 1;
+                vIdxs[count++] = thisVert + TOTAL_I_VERTS;
             } 
 
         }
     }
+    activeIndex = 30+80*TOTAL_I_VERTS;
+    newIndex = activeIndex;
 
-    verts[100+30*NUM_X_VERTS].bIsExciter = true;
-    verts[100+30*NUM_X_VERTS].ExciterAmplitude = 0.8f;
-    verts[100+30*NUM_X_VERTS].ExciterFrequency = 15.0f;
-    verts[30+80*NUM_X_VERTS].bIsExciter = true;
-    verts[30+80*NUM_X_VERTS].ExciterAmplitude = 0.3f;
-    verts[30+80*NUM_X_VERTS].ExciterFrequency = 40.0f;
-    NumIndices = count;
+    verts[100+30*TOTAL_I_VERTS].jump = true;
+    verts[30+80*TOTAL_I_VERTS].jump = true;
+    verts[100+30*TOTAL_I_VERTS].jumpAmt = 0.8f;
+    verts[100+30*TOTAL_I_VERTS].jumpFreq = 15.0f;
+    verts[30+80*TOTAL_I_VERTS].jumpAmt = 0.3f;
+    verts[30+80*TOTAL_I_VERTS].jumpFreq = 40.0f;
+    indexCount = count;
 }
 
-void refreshWater(float deltaTime, float time)
+void refreshWater(float time)
 {
-    for (int i = 0; i < NUM_X_VERTS; i++) 
+  for (int i = 0; i < TOTAL_I_VERTS; i++) 
+  {
+    for (int j = 0; j < TOTAL_J_VERTS; j++) 
     {
-        for (int j = 0; j < NUM_Z_VERTS; j++) 
-        {
-            int thisVert = i+j*NUM_X_VERTS;
+      int thisVert = i+j*TOTAL_I_VERTS;
 
-            if ((verts[thisVert].bIsExciter) && g_bExcitersInUse)
-            {
-                verts[thisVert].newY = verts[thisVert].ExciterAmplitude*sin(time*verts[thisVert].ExciterFrequency);
-            }
+      if ((verts[thisVert].jump) && jump)
+        verts[thisVert].newY = verts[thisVert].jumpAmt * sin(time*verts[thisVert].jumpFreq);
 
+      if ((j==TOTAL_J_VERTS-1) || (j==0) || (i==TOTAL_I_VERTS-1) || (i==0))
+        continue;
+      else
+      {                
+        GLfloat horizOffset = verts[thisVert-1].y + verts[thisVert+1].y;
+        GLfloat vertOffset = verts[thisVert-TOTAL_I_VERTS].y + verts[thisVert+TOTAL_I_VERTS].y;
+        GLfloat currentOffset = 4 * verts[thisVert].y;
+        GLfloat deltaHeight = horizOffset + vertOffset - currentOffset;
 
-            //check, if this oscillator is on an edge (=>end)
-            if ((i==0) || (i==NUM_X_VERTS-1) || (j==0) || (j==NUM_Z_VERTS-1))
-                ;//TBD: calculating oscillators at the edge (if the end is free)
-            else
-            {
-              //calculate the new speed:
-                
+        verts[thisVert].vel += deltaHeight * dT / NORMALIZATION_FACTOR;
+        verts[thisVert].newY += verts[thisVert].vel * dT;
+      }
+    }       
+  }
 
-                //Change the speed (=accelerate) according to the oscillator's 4 direct neighbors:
-                float AvgDifference = verts[thisVert-1].y             //left neighbor
-                                     +verts[thisVert+1].y             //right neighbor
-                                     +verts[thisVert-NUM_X_VERTS].y  //upper neighbor
-                                     +verts[thisVert+NUM_X_VERTS].y  //lower neighbor
-                                     -4*verts[thisVert].y;                //subtract the pos of the current osc. 4 times  
-                verts[thisVert].UpSpeed += AvgDifference*deltaTime/VERT_WEIGHT;
-                verts[thisVert].newY += verts[thisVert].UpSpeed*deltaTime;
-            }
-        }       
-    }
-
-    //copy the new position to y:
-    for (int i = 0; i < NUM_X_VERTS; i++) 
+  for (int i = 0; i < TOTAL_I_VERTS; i++) 
+  {
+    for (int j = 0; j < TOTAL_J_VERTS; j++) 
     {
-        for (int j = 0; j < NUM_Z_VERTS; j++) 
-        {
-            verts[i+j*NUM_X_VERTS].y =verts[i+j*NUM_X_VERTS].newY;
-        }
+      int thisVert = i+j*TOTAL_I_VERTS;
+
+      verts[thisVert].y = verts[thisVert].newY;
+
+      Vector3 u,v;
+
+      int leftVert = thisVert - 1;
+      int rightVert = thisVert + 1;
+      int upVert = thisVert - TOTAL_I_VERTS;
+      int downVert = thisVert + TOTAL_I_VERTS;
+
+      u = Vector3::Make(verts[leftVert].x, verts[leftVert].y, verts[leftVert].z) -
+        Vector3::Make(verts[rightVert].x, verts[rightVert].y, verts[rightVert].z);
+
+      v = Vector3::Make(verts[upVert].x, verts[upVert].y, verts[upVert].z) - 
+        Vector3::Make(verts[downVert].x, verts[downVert].y, verts[downVert].z);
+
+      Vector3 norm = Vector3::Norm(Vector3::Cross(&u,&v));
+
+      verts[thisVert].nX = norm.x; verts[thisVert].nY = norm.y; verts[thisVert].nZ = norm.z;
     }
-    //calculate new normal vectors (according to the oscillator's neighbors):
-    for (int i = 1; i < NUM_X_VERTS - 1; i++) 
-    {
-        for (int j = 1; j < NUM_Z_VERTS - 1; j++) 
-        {
-            Vector3 u,v;
-            
-            int thisVert = i+j*NUM_X_VERTS;
+  }
 
-            int leftVert = thisVert - 1;
-            int rightVert = thisVert + 1;
-            int upVert = thisVert - NUM_X_VERTS;
-            int downVert = thisVert + NUM_X_VERTS;
-
-            u = Vector3::Make(verts[leftVert].x, verts[leftVert].y, verts[leftVert].z) -
-                    Vector3::Make(verts[rightVert].x, verts[rightVert].y, verts[rightVert].z);
-
-            v = Vector3::Make(verts[upVert].x, verts[upVert].y, verts[upVert].z) - 
-                    Vector3::Make(verts[downVert].x, verts[downVert].y, verts[downVert].z);
-
-            Vector3 normal = Vector3::Norm(Vector3::Cross(&u,&v));
-
-            verts[thisVert].nx = normal.x; verts[thisVert].ny = normal.y; verts[thisVert].nz = normal.z;
-        }
+  if(fabs(activeIndex - newIndex) > 0) {
+    if(newIndex >= TOTAL_I_VERTS) {
+      newIndex = 0;
     }
+    verts[activeIndex].jump = false;
+    verts[newIndex].jump = true;
+    verts[newIndex].jumpAmt = 0.3f;
+    verts[newIndex].jumpFreq = 40.0f;
+    activeIndex = newIndex;
+  }
 
 }
 
@@ -233,9 +236,9 @@ void drawFloor()
     glRotatef(180,1,0,0);
     glTranslatef(-BODY_SIZE / 2.0, 0, -BODY_SIZE / 2.0);
     glDrawElements( GL_TRIANGLES, //mode
-                    NumIndices,  //count, ie. how many indices
+                    indexCount,  //count, ie. how many indices
                     GL_UNSIGNED_INT, //type of the index array
-                    Indices);;
+                    vIdxs);;
     glPopMatrix();
 }
 void drawSelectableTeapots( void )
@@ -514,36 +517,29 @@ static void setupShaders()
     shaderProg = toon;
 }
 
-void Idle(void)
+void idle(void)
 {
-    float dtime = 0.004f;  //if you want to be exact, you would have to replace this by the real time passed since the last frame (and probably divide it by a certain number)
-    initialtime += dtime;
+  initialtime += dT;
 
-    if (initialtime > 1.7f)
-    {
-        g_bExcitersInUse = false;  //stop the exciters
-    }
-//ENABLE THE FOLLOWING LINES FOR A RAIN EFFECT
-    int randomNumber = rand();
-    if (randomNumber < NUM_VERTS)
-    {
-        verts[randomNumber].y = -0.05;
-    }
-    if(keydown) {
-        glTranslatef(0, 0, camPosZ);
-        glRotatef(1.0 * direction, 0.0, 1.0, 0.0);
-        glTranslatef(0, 0, -camPosZ);
-    }
-    if(up_or_down){
-        glTranslatef(0, 0, camPosZ);
-        glRotatef(1.0 * up_or_down_direction, 1.0, 0.0, 0.0);
-        glTranslatef(0, 0, -camPosZ);   
-    }
-    
+  if(up_or_down){
+      glTranslatef(0, 0, camPosZ);
+      glRotatef(1.0 * up_or_down_direction, 1.0, 0.0, 0.0);
+      glTranslatef(0, 0, -camPosZ);   
+  }
 
+  if(keydown) {
+    glTranslatef(0, 0, camPosZ);
+    glRotatef(1.0 * direction, 0.0, 1.0, 0.0);
+    glTranslatef(0, 0, -camPosZ);
+  }
 
-    refreshWater(dtime,initialtime);
-    display();
+  if(fabs(initialtime - sampledtime) > 0.05f) {
+    sampledtime = initialtime;
+    newIndex = floor((30+80*TOTAL_I_VERTS)*sampledtime*10);
+  }
+  
+  refreshWater(initialtime);
+  display();
 }
 
 int main (int argc, char *argv[])
@@ -560,20 +556,18 @@ int main (int argc, char *argv[])
     setupRC();
 
     initWater();
-    //Enable the vertex array functionality:
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
-    glVertexPointer(    3,   //3 components per vertex (x,y,z)
-                        GL_FLOAT,
-                        sizeof(Vertex3),
-                        verts);
-    glNormalPointer(    GL_FLOAT,
-                        sizeof(Vertex3),
-                        &verts[0].nx);  //Pointer to the first color*/
+    glVertexPointer( 3,
+      GL_FLOAT,
+      sizeof(Vertex3),
+      verts);
+    glNormalPointer( GL_FLOAT,
+      sizeof(Vertex3),
+      &verts[0].nX);
     glPointSize(2.0);
-    glClearColor(0.0,0.0,0.0,0.0);
+    glClearColor(0.0,1.0,1.0,0.0);
     
-    //Switch on solid rendering:
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     glutDisplayFunc( display );
@@ -582,7 +576,7 @@ int main (int argc, char *argv[])
     glutKeyboardUpFunc( keyup );
     glutMouseFunc( mouse );
     glutMotionFunc( motion );
-    glutIdleFunc(Idle);
+    glutIdleFunc(idle);
 
     glutMainLoop();
     delete shaderProg;
