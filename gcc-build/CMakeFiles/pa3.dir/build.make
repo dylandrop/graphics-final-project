@@ -167,13 +167,109 @@ CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides: CMakeFiles/pa3.dir/src/Vector3.cp
 
 CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides.build: CMakeFiles/pa3.dir/src/Vector3.cpp.o
 
+CMakeFiles/pa3.dir/src/SOIL.c.o: CMakeFiles/pa3.dir/flags.make
+CMakeFiles/pa3.dir/src/SOIL.c.o: ../src/SOIL.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/SOIL.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/SOIL.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c
+
+CMakeFiles/pa3.dir/src/SOIL.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/SOIL.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c > CMakeFiles/pa3.dir/src/SOIL.c.i
+
+CMakeFiles/pa3.dir/src/SOIL.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/SOIL.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c -o CMakeFiles/pa3.dir/src/SOIL.c.s
+
+CMakeFiles/pa3.dir/src/SOIL.c.o.requires:
+.PHONY : CMakeFiles/pa3.dir/src/SOIL.c.o.requires
+
+CMakeFiles/pa3.dir/src/SOIL.c.o.provides: CMakeFiles/pa3.dir/src/SOIL.c.o.requires
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/SOIL.c.o.provides.build
+.PHONY : CMakeFiles/pa3.dir/src/SOIL.c.o.provides
+
+CMakeFiles/pa3.dir/src/SOIL.c.o.provides.build: CMakeFiles/pa3.dir/src/SOIL.c.o
+
+CMakeFiles/pa3.dir/src/image_helper.c.o: CMakeFiles/pa3.dir/flags.make
+CMakeFiles/pa3.dir/src/image_helper.c.o: ../src/image_helper.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/image_helper.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_helper.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c
+
+CMakeFiles/pa3.dir/src/image_helper.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/image_helper.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c > CMakeFiles/pa3.dir/src/image_helper.c.i
+
+CMakeFiles/pa3.dir/src/image_helper.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/image_helper.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c -o CMakeFiles/pa3.dir/src/image_helper.c.s
+
+CMakeFiles/pa3.dir/src/image_helper.c.o.requires:
+.PHONY : CMakeFiles/pa3.dir/src/image_helper.c.o.requires
+
+CMakeFiles/pa3.dir/src/image_helper.c.o.provides: CMakeFiles/pa3.dir/src/image_helper.c.o.requires
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_helper.c.o.provides.build
+.PHONY : CMakeFiles/pa3.dir/src/image_helper.c.o.provides
+
+CMakeFiles/pa3.dir/src/image_helper.c.o.provides.build: CMakeFiles/pa3.dir/src/image_helper.c.o
+
+CMakeFiles/pa3.dir/src/image_DXT.c.o: CMakeFiles/pa3.dir/flags.make
+CMakeFiles/pa3.dir/src/image_DXT.c.o: ../src/image_DXT.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/image_DXT.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_DXT.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c
+
+CMakeFiles/pa3.dir/src/image_DXT.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/image_DXT.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c > CMakeFiles/pa3.dir/src/image_DXT.c.i
+
+CMakeFiles/pa3.dir/src/image_DXT.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/image_DXT.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c -o CMakeFiles/pa3.dir/src/image_DXT.c.s
+
+CMakeFiles/pa3.dir/src/image_DXT.c.o.requires:
+.PHONY : CMakeFiles/pa3.dir/src/image_DXT.c.o.requires
+
+CMakeFiles/pa3.dir/src/image_DXT.c.o.provides: CMakeFiles/pa3.dir/src/image_DXT.c.o.requires
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_DXT.c.o.provides.build
+.PHONY : CMakeFiles/pa3.dir/src/image_DXT.c.o.provides
+
+CMakeFiles/pa3.dir/src/image_DXT.c.o.provides.build: CMakeFiles/pa3.dir/src/image_DXT.c.o
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.o: CMakeFiles/pa3.dir/flags.make
+CMakeFiles/pa3.dir/src/stb_image_aug.c.o: ../src/stb_image_aug.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/stb_image_aug.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/stb_image_aug.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/stb_image_aug.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c > CMakeFiles/pa3.dir/src/stb_image_aug.c.i
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/stb_image_aug.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c -o CMakeFiles/pa3.dir/src/stb_image_aug.c.s
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires:
+.PHONY : CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.o.provides: CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/stb_image_aug.c.o.provides.build
+.PHONY : CMakeFiles/pa3.dir/src/stb_image_aug.c.o.provides
+
+CMakeFiles/pa3.dir/src/stb_image_aug.c.o.provides.build: CMakeFiles/pa3.dir/src/stb_image_aug.c.o
+
 # Object files for target pa3
 pa3_OBJECTS = \
 "CMakeFiles/pa3.dir/src/main.cpp.o" \
 "CMakeFiles/pa3.dir/src/trackball.cpp.o" \
 "CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o" \
 "CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o" \
-"CMakeFiles/pa3.dir/src/Vector3.cpp.o"
+"CMakeFiles/pa3.dir/src/Vector3.cpp.o" \
+"CMakeFiles/pa3.dir/src/SOIL.c.o" \
+"CMakeFiles/pa3.dir/src/image_helper.c.o" \
+"CMakeFiles/pa3.dir/src/image_DXT.c.o" \
+"CMakeFiles/pa3.dir/src/stb_image_aug.c.o"
 
 # External object files for target pa3
 pa3_EXTERNAL_OBJECTS =
@@ -183,6 +279,10 @@ pa3: CMakeFiles/pa3.dir/src/trackball.cpp.o
 pa3: CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o
 pa3: CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o
 pa3: CMakeFiles/pa3.dir/src/Vector3.cpp.o
+pa3: CMakeFiles/pa3.dir/src/SOIL.c.o
+pa3: CMakeFiles/pa3.dir/src/image_helper.c.o
+pa3: CMakeFiles/pa3.dir/src/image_DXT.c.o
+pa3: CMakeFiles/pa3.dir/src/stb_image_aug.c.o
 pa3: CMakeFiles/pa3.dir/build.make
 pa3: /usr/local/lib/libGLEW.dylib
 pa3: CMakeFiles/pa3.dir/link.txt
@@ -198,6 +298,10 @@ CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/trackball.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.requires
 CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires
+CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/SOIL.c.o.requires
+CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/image_helper.c.o.requires
+CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/image_DXT.c.o.requires
+CMakeFiles/pa3.dir/requires: CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires
 .PHONY : CMakeFiles/pa3.dir/requires
 
 CMakeFiles/pa3.dir/clean:

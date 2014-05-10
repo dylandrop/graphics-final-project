@@ -27,6 +27,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "GLSLProgram.h"
+#include "SOIL.h"
 
 using namespace std;
 
@@ -75,8 +76,10 @@ static GLSLProgram* toon = NULL;
 static GLSLProgram* gour = NULL;
 static GLSLProgram* blinnp = NULL;
 static GLSLProgram* checkbp = NULL;
+static GLSLProgram* textureshader = NULL;
 static GLSLProgram* bonus = NULL;
-
+static GLuint texture;
+static GLUquadric *sphere;
 
 #define TOTAL_I_VERTS       140
 #define TOTAL_J_VERTS       140
@@ -194,7 +197,28 @@ void refreshWater(float time)
 
 }
 
+// Taken from http://www.lonesock.net/soil.html
+int textLoad()
+{
+    texture = SOIL_load_OGL_texture
+        (
+        "storm.jpg",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+        );
+ 
+    if( 0 == texture ) {
+        printf("SOIL loading error: '%s'\n", SOIL_last_result());
+        return false;
+    } 
 
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    return true;
+}
 
 void initLights(void)
 {
@@ -260,6 +284,8 @@ void drawSelectableTeapots( void )
     drawFloor();
     shaderProg->enable();
 
+    shaderProg->bind_texture("texture", texture, GL_TEXTURE_2D, 0);
+
     //pass the current time and light direction to the shaders
     shaderProg->set_uniform_1f("time", glutGet(GLUT_ELAPSED_TIME));
     shaderProg->set_uniform_3f("lightDir", 1.f, 1.f, 0.5f);
@@ -273,20 +299,18 @@ void drawSelectableTeapots( void )
         glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
         glLoadName(0);
         glutSolidSphere(BALL_RADIUS, 40, 40);
-
-        
-        // glLoadName(1);
-        // glTranslatef(0,0,5);
-        // glutSolidSphere(0.5, 40, 40);
     }
     glPopMatrix();
     shaderProg->disable();
     GLSLProgram* temp = shaderProg;
-    shaderProg = gour;
+    shaderProg = textureshader;
     shaderProg->enable();
     glPushMatrix();
     glMaterialfv(GL_FRONT, GL_DIFFUSE, skyColor);
-    glutSolidSphere(50.5, 40, 40);
+    glRotatef(90,1,0,0);
+    gluQuadricTexture(sphere, true);
+    gluQuadricNormals(sphere, true);
+    gluSphere(sphere, 50.5, 40, 40);
     shaderProg = temp;
     shaderProg->disable();
     glPopMatrix();
@@ -522,6 +546,7 @@ static void setupShaders()
     gour = new GLSLProgram(gourVS, gourFS);
     blinnp = new GLSLProgram(blinnpVS, blinnpFS);
     checkbp = new GLSLProgram(checkbpVS, checkbpFS);
+    textureshader = new GLSLProgram(textureVS, textureFS);
     bonus = new GLSLProgram(bonusVS, bonusFS);
     shaderProg = toon;
 }
@@ -562,7 +587,9 @@ int main (int argc, char *argv[])
     glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
     glutInitWindowSize( win_width, win_height );
 
+
     glutCreateWindow( "Opengl demo" );
+    textLoad();
     setupShaders();
     setupRC();
 
@@ -585,6 +612,7 @@ int main (int argc, char *argv[])
     glutReshapeFunc( reshape );
     glutKeyboardFunc( keyboard );
     glutKeyboardUpFunc( keyup );
+    sphere = gluNewQuadric();
     glutMouseFunc( mouse );
     glutMotionFunc( motion );
     glutIdleFunc(idle);

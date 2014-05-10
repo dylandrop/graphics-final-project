@@ -35,7 +35,12 @@ add_executable(pa3
     src/GLSLProgram.h       src/GLSLProgram.cpp
     src/GLScreenCapturer.h  src/GLScreenCapturer.cpp
     src/Vector3.h           src/Vector3.cpp
-    src/Vertex3.h)
+    src/Vertex3.h           src/SOIL.c
+    src/SOIL.h              src/image_helper.c
+    src/image_helper.h      src/image_DXT.c
+    src/image_DXT.h         src/stb_image_aug.c
+    src/stb_image_aug.h     src/stbi_DDS_aug.h
+    src/stbi_DDS_aug_c.h)
 target_link_libraries(pa3
     ${GLUT_LIBRARIES}       ${OPENGL_LIBRARIES}
     ${GLEW_LIBRARY})
