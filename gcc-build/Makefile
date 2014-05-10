@@ -162,6 +162,30 @@ src/GLScreenCapturer.cpp.s:
 	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s
 .PHONY : src/GLScreenCapturer.cpp.s
 
+src/SOIL.o: src/SOIL.c.o
+.PHONY : src/SOIL.o
+
+# target to build an object file
+src/SOIL.c.o:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/SOIL.c.o
+.PHONY : src/SOIL.c.o
+
+src/SOIL.i: src/SOIL.c.i
+.PHONY : src/SOIL.i
+
+# target to preprocess a source file
+src/SOIL.c.i:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/SOIL.c.i
+.PHONY : src/SOIL.c.i
+
+src/SOIL.s: src/SOIL.c.s
+.PHONY : src/SOIL.s
+
+# target to generate assembly for a file
+src/SOIL.c.s:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/SOIL.c.s
+.PHONY : src/SOIL.c.s
+
 src/Vector3.o: src/Vector3.cpp.o
 .PHONY : src/Vector3.o
 
@@ -186,6 +210,54 @@ src/Vector3.cpp.s:
 	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/Vector3.cpp.s
 .PHONY : src/Vector3.cpp.s
 
+src/image_DXT.o: src/image_DXT.c.o
+.PHONY : src/image_DXT.o
+
+# target to build an object file
+src/image_DXT.c.o:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_DXT.c.o
+.PHONY : src/image_DXT.c.o
+
+src/image_DXT.i: src/image_DXT.c.i
+.PHONY : src/image_DXT.i
+
+# target to preprocess a source file
+src/image_DXT.c.i:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_DXT.c.i
+.PHONY : src/image_DXT.c.i
+
+src/image_DXT.s: src/image_DXT.c.s
+.PHONY : src/image_DXT.s
+
+# target to generate assembly for a file
+src/image_DXT.c.s:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_DXT.c.s
+.PHONY : src/image_DXT.c.s
+
+src/image_helper.o: src/image_helper.c.o
+.PHONY : src/image_helper.o
+
+# target to build an object file
+src/image_helper.c.o:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_helper.c.o
+.PHONY : src/image_helper.c.o
+
+src/image_helper.i: src/image_helper.c.i
+.PHONY : src/image_helper.i
+
+# target to preprocess a source file
+src/image_helper.c.i:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_helper.c.i
+.PHONY : src/image_helper.c.i
+
+src/image_helper.s: src/image_helper.c.s
+.PHONY : src/image_helper.s
+
+# target to generate assembly for a file
+src/image_helper.c.s:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/image_helper.c.s
+.PHONY : src/image_helper.c.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -209,6 +281,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/stb_image_aug.o: src/stb_image_aug.c.o
+.PHONY : src/stb_image_aug.o
+
+# target to build an object file
+src/stb_image_aug.c.o:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/stb_image_aug.c.o
+.PHONY : src/stb_image_aug.c.o
+
+src/stb_image_aug.i: src/stb_image_aug.c.i
+.PHONY : src/stb_image_aug.i
+
+# target to preprocess a source file
+src/stb_image_aug.c.i:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/stb_image_aug.c.i
+.PHONY : src/stb_image_aug.c.i
+
+src/stb_image_aug.s: src/stb_image_aug.c.s
+.PHONY : src/stb_image_aug.s
+
+# target to generate assembly for a file
+src/stb_image_aug.c.s:
+	$(MAKE) -f CMakeFiles/pa3.dir/build.make CMakeFiles/pa3.dir/src/stb_image_aug.c.s
+.PHONY : src/stb_image_aug.c.s
 
 src/trackball.o: src/trackball.cpp.o
 .PHONY : src/trackball.o
@@ -249,12 +345,24 @@ help:
 	@echo "... src/GLScreenCapturer.o"
 	@echo "... src/GLScreenCapturer.i"
 	@echo "... src/GLScreenCapturer.s"
+	@echo "... src/SOIL.o"
+	@echo "... src/SOIL.i"
+	@echo "... src/SOIL.s"
 	@echo "... src/Vector3.o"
 	@echo "... src/Vector3.i"
 	@echo "... src/Vector3.s"
+	@echo "... src/image_DXT.o"
+	@echo "... src/image_DXT.i"
+	@echo "... src/image_DXT.s"
+	@echo "... src/image_helper.o"
+	@echo "... src/image_helper.i"
+	@echo "... src/image_helper.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/stb_image_aug.o"
+	@echo "... src/stb_image_aug.i"
+	@echo "... src/stb_image_aug.s"
 	@echo "... src/trackball.o"
 	@echo "... src/trackball.i"
 	@echo "... src/trackball.s"

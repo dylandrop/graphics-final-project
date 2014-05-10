@@ -1,8 +1,16 @@
 # The set of languages for which implicit dependencies are needed:
 SET(CMAKE_DEPENDS_LANGUAGES
+  "C"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
+SET(CMAKE_DEPENDS_CHECK_C
+  "/Users/dylandrop/Downloads/pa3_starter/src/SOIL.c" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/SOIL.c.o"
+  "/Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/image_DXT.c.o"
+  "/Users/dylandrop/Downloads/pa3_starter/src/image_helper.c" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/image_helper.c.o"
+  "/Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/stb_image_aug.c.o"
+  )
+SET(CMAKE_C_COMPILER_ID "Clang")
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o"
   "/Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp" "/Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o"

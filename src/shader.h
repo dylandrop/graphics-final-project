@@ -114,6 +114,25 @@ void main() {                                                                   
 }
 );
 
+const char* textureVS = STRINGIFY(
+varying vec2 txt_c;
+void main()                                                         \n
+{                                                                   \n
+    txt_c = gl_MultiTexCoord0.st;                                   \n
+    gl_Position = ftransform();                                     \n
+}                                                                   \n
+);
+
+const char* textureFS = STRINGIFY(
+varying vec2 txt_c;                                                      \n
+uniform sampler2D texture;                                               \n
+void main()                                                              \n
+{                                                                        \n
+    gl_FragColor = texture2D(texture, txt_c);                            \n
+}                                                                        \n
+);
+
+
 const char* bonusFS = STRINGIFY(
   varying vec2 txt_c;                                                                     \n
   uniform float time;                                                                     \n
