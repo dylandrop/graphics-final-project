@@ -48,6 +48,16 @@ bool up_or_down = false;
 float up_or_down_direction = 1.0;
 float direction = 1.0;
 
+//simulation stuff
+GLfloat ball_offset = 0.0;
+GLfloat ball_velocity = 0.0;
+GLfloat ball_acceleration = 0.0;
+//ball will stay 1/3 way submerged in still water
+GLfloat FLOATATION_COEFFICIENT = 1.0;
+GLfloat GRAVITY_COEFFICIENT = 0.3; 
+GLfloat BALL_RADIUS = 1.0;
+
+
 // Lights & Materials
 GLfloat ambient[] = {0.2, 0.2, 0.2, 1.0};
 GLfloat position[] = {0.3, 0.3, 0.3, 1.0};
@@ -258,21 +268,16 @@ void drawSelectableTeapots( void )
     
     glPushMatrix();
     {
-        
-        if( isTeapot1_selected )
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, selectedColor);
-        else
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
+        glTranslatef(0,-1,0);
+        glTranslatef(0.0, ball_offset, 0.0);
+        glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
         glLoadName(0);
-        glutSolidSphere(2.5, 40, 40);
+        glutSolidSphere(BALL_RADIUS, 40, 40);
 
-        if( isTeapot2_selected )
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, selectedColor);
-        else
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
-        glLoadName(1);
-        glTranslatef(0,0,5);
-        glutSolidSphere(0.5, 40, 40);
+        
+        // glLoadName(1);
+        // glTranslatef(0,0,5);
+        // glutSolidSphere(0.5, 40, 40);
     }
     glPopMatrix();
     shaderProg->disable();
@@ -521,7 +526,8 @@ static void setupShaders()
     shaderProg = toon;
 }
 void moveBall(){
-    printf("%f\n", verts[TOTAL_VERTS/2].y);
+    ball_offset = verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y;
+    
 }
 
 void idle(void)
