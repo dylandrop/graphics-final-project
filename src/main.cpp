@@ -75,11 +75,8 @@ static GLSLProgram* bonus = NULL;
 #define NORMALIZATION_FACTOR       0.0002
 GLuint * vIdxs;
 float initialtime = 0.0f;
-float sampledtime = 0.0f;
 int indexCount;
 bool jump = true;
-int activeIndex;
-int newIndex;
 
 Vertex3 * verts;
 
@@ -112,15 +109,15 @@ void initWater()
 
         }
     }
-    activeIndex = 30+80*TOTAL_I_VERTS;
-    newIndex = activeIndex;
 
-    verts[100+30*TOTAL_I_VERTS].jump = true;
-    verts[30+80*TOTAL_I_VERTS].jump = true;
-    verts[100+30*TOTAL_I_VERTS].jumpAmt = 0.8f;
-    verts[100+30*TOTAL_I_VERTS].jumpFreq = 15.0f;
-    verts[30+80*TOTAL_I_VERTS].jumpAmt = 0.3f;
-    verts[30+80*TOTAL_I_VERTS].jumpFreq = 40.0f;
+    for(int i = 0; i < TOTAL_I_VERTS - 2; i++) {
+      verts[i+135*TOTAL_I_VERTS].jump = true;
+      verts[i+135*TOTAL_I_VERTS].jumpAmt = 0.3f*sin(i/(PI*PI*PI));
+      verts[i+135*TOTAL_I_VERTS].jumpFreq = 10.0f*sin(i/(PI*PI*PI)) + 10.0f;
+      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jump = true;
+      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpAmt = 0.3f*sin(i/(PI*PI*PI));
+      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpFreq = 10.0f*sin(i/(PI*PI*PI)) + 10.0f;
+    }
     indexCount = count;
 }
 
@@ -132,8 +129,12 @@ void refreshWater(float time)
     {
       int thisVert = i+j*TOTAL_I_VERTS;
 
-      if ((verts[thisVert].jump) && jump)
+      if ((verts[thisVert].jump) && jump) {
         verts[thisVert].newY = verts[thisVert].jumpAmt * sin(time*verts[thisVert].jumpFreq);
+        if(time > 2.0f) {
+          verts[thisVert].jumpAmt *= 0.5;
+        }
+      }
 
       if ((j==TOTAL_J_VERTS-1) || (j==0) || (i==TOTAL_I_VERTS-1) || (i==0))
         continue;
@@ -175,17 +176,6 @@ void refreshWater(float time)
 
       verts[thisVert].nX = norm.x; verts[thisVert].nY = norm.y; verts[thisVert].nZ = norm.z;
     }
-  }
-
-  if(fabs(activeIndex - newIndex) > 0) {
-    if(newIndex >= TOTAL_I_VERTS) {
-      newIndex = 0;
-    }
-    verts[activeIndex].jump = false;
-    verts[newIndex].jump = true;
-    verts[newIndex].jumpAmt = 0.3f;
-    verts[newIndex].jumpFreq = 40.0f;
-    activeIndex = newIndex;
   }
 
 }
@@ -531,11 +521,6 @@ void idle(void)
     glTranslatef(0, 0, camPosZ);
     glRotatef(1.0 * direction, 0.0, 1.0, 0.0);
     glTranslatef(0, 0, -camPosZ);
-  }
-
-  if(fabs(initialtime - sampledtime) > 0.05f) {
-    sampledtime = initialtime;
-    newIndex = floor((30+80*TOTAL_I_VERTS)*sampledtime*10);
   }
   
   refreshWater(initialtime);
