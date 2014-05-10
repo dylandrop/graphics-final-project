@@ -50,9 +50,13 @@ float direction = 1.0;
 
 // Lights & Materials
 GLfloat ambient[] = {0.2, 0.2, 0.2, 1.0};
-GLfloat position[] = {0.0, 0.3, 0.0, 1.0};
+GLfloat position[] = {0.3, 0.3, 0.3, 1.0};
+GLfloat position2[] = {0.0, 0.3, 0.0, 1.0};
 GLfloat mat_diffuse[] = {0.6, 0.6, 0.6, 1.0};
 GLfloat mat_specular[] = {0.7, 0.7, 0.7, 1.0};
+GLfloat waterColor[] = {0.0, 0.5, 0.8, 0.6};
+GLfloat skyColor[] = {0.2, 0.3, 0.8, 1.0};
+
 GLfloat mat_shininess[] = {50.0};
 
 static GLScreenCapturer screenshot("screenshot-%d.ppm");
@@ -115,8 +119,8 @@ void initWater()
       verts[i+135*TOTAL_I_VERTS].jumpAmt = 0.3f*sin(i/(PI*PI*PI));
       verts[i+135*TOTAL_I_VERTS].jumpFreq = 10.0f*sin(i/(PI*PI*PI)) + 10.0f;
       verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jump = true;
-      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpAmt = 0.3f*sin(i/(PI*PI*PI));
-      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpFreq = 10.0f*sin(i/(PI*PI*PI)) + 10.0f;
+      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpAmt = 0.41f*sin(i/(PI*PI*PI));
+      verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpFreq = 8.7f*sin(i/(PI*PI*PI)) + 11.1f;
     }
     indexCount = count;
 }
@@ -188,7 +192,7 @@ void initLights(void)
     glEnable(GL_LIGHT0);
     
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-    glLightfv(GL_LIGHT0, GL_POSITION, position);
+    glLightfv(GL_LIGHT0, GL_POSITION, position2);
     
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
@@ -225,10 +229,10 @@ void drawFloor()
     glTranslatef(0,-1,0);
     glRotatef(180,1,0,0);
     glTranslatef(-BODY_SIZE / 2.0, 0, -BODY_SIZE / 2.0);
-    glDrawElements( GL_TRIANGLES, //mode
-                    indexCount,  //count, ie. how many indices
-                    GL_UNSIGNED_INT, //type of the index array
-                    vIdxs);;
+    glDrawElements( GL_TRIANGLES, 
+      indexCount,
+      GL_UNSIGNED_INT,
+      vIdxs);;
     glPopMatrix();
 }
 void drawSelectableTeapots( void )
@@ -242,6 +246,7 @@ void drawSelectableTeapots( void )
     // Initialize the name stack
     glInitNames();
     glPushName(0);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, waterColor);
     drawFloor();
     shaderProg->enable();
 
@@ -271,6 +276,15 @@ void drawSelectableTeapots( void )
     }
     glPopMatrix();
     shaderProg->disable();
+    GLSLProgram* temp = shaderProg;
+    shaderProg = gour;
+    shaderProg->enable();
+    glPushMatrix();
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, skyColor);
+    glutSolidSphere(50.5, 40, 40);
+    shaderProg = temp;
+    shaderProg->disable();
+    glPopMatrix();
     
     glColor4fv(currentColor);
 
