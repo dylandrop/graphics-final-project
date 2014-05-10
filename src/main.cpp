@@ -506,6 +506,9 @@ static void setupShaders()
     bonus = new GLSLProgram(bonusVS, bonusFS);
     shaderProg = toon;
 }
+void moveBall(){
+    printf("%f\n", verts[TOTAL_VERTS/2].y);
+}
 
 void idle(void)
 {
@@ -524,6 +527,7 @@ void idle(void)
   }
   
   refreshWater(initialtime);
+  moveBall();
   display();
 }
 
