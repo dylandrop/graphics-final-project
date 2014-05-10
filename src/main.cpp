@@ -526,7 +526,9 @@ static void setupShaders()
     shaderProg = toon;
 }
 void moveBall(){
+    GLfloat force_coeff = 
     ball_offset = -verts[TOTAL_I_VERTS/4+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y;
+
     
 }
 
