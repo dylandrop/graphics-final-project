@@ -580,7 +580,7 @@ void moveBall(){
         
     }
     
-    ball_velocity += force_coeff*dT*200;
+    ball_velocity += force_coeff*dT*400;
     ball_offset += ball_velocity*dT;
     // printf("%f force coefficient\n", force_coeff);
     // printf("%f ball_velocity\n", ball_velocity);
