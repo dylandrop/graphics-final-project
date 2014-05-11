@@ -79,9 +79,9 @@ static GLSLProgram* toon = NULL;
 static GLSLProgram* gour = NULL;
 static GLSLProgram* blinnp = NULL;
 static GLSLProgram* checkbp = NULL;
-static GLSLProgram* textureshader = NULL;
+static GLSLProgram* tex_2d_shader = NULL;
 static GLSLProgram* bonus = NULL;
-static GLuint texture;
+static GLuint tex_2d;
 static GLUquadric *sphere;
 
 #define TOTAL_I_VERTS       140
@@ -203,7 +203,7 @@ void refreshWater(float time)
 // Taken from http://www.lonesock.net/soil.html
 int textLoad()
 {
-    texture = SOIL_load_OGL_texture
+    tex_2d = SOIL_load_OGL_texture
         (
         "storm.jpg",
         SOIL_LOAD_AUTO,
@@ -211,12 +211,12 @@ int textLoad()
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
         );
  
-    if( 0 == texture ) {
+    if( 0 == tex_2d ) {
         printf("SOIL loading error: '%s'\n", SOIL_last_result());
         return false;
     } 
 
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindTexture(GL_TEXTURE_2D, tex_2d);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -287,7 +287,7 @@ void drawSelectableTeapots( void )
     drawFloor();
     shaderProg->enable();
 
-    shaderProg->bind_texture("texture", texture, GL_TEXTURE_2D, 0);
+    shaderProg->bind_texture("texture", tex_2d, GL_TEXTURE_2D, 0);
 
     //pass the current time and light direction to the shaders
     shaderProg->set_uniform_1f("time", glutGet(GLUT_ELAPSED_TIME));
@@ -306,7 +306,7 @@ void drawSelectableTeapots( void )
     glPopMatrix();
     shaderProg->disable();
     GLSLProgram* temp = shaderProg;
-    shaderProg = textureshader;
+    shaderProg = tex_2d_shader;
     shaderProg->enable();
     glPushMatrix();
     glMaterialfv(GL_FRONT, GL_DIFFUSE, skyColor);
@@ -553,7 +553,7 @@ static void setupShaders()
     gour = new GLSLProgram(gourVS, gourFS);
     blinnp = new GLSLProgram(blinnpVS, blinnpFS);
     checkbp = new GLSLProgram(checkbpVS, checkbpFS);
-    textureshader = new GLSLProgram(textureVS, textureFS);
+    tex_2d_shader = new GLSLProgram(textureVS, textureFS);
     bonus = new GLSLProgram(bonusVS, bonusFS);
     shaderProg = toon;
 }
