@@ -50,13 +50,16 @@ float up_or_down_direction = 1.0;
 float direction = 1.0;
 
 //simulation stuff
+bool move_ball_downwards = false;
 GLfloat ball_offset = 0.0;
 GLfloat ball_velocity = 0.0;
 GLfloat ball_acceleration = 0.0;
 //ball will stay 1/3 way submerged in still water
-GLfloat FLOATATION_COEFFICIENT = 1.0;
-GLfloat GRAVITY_COEFFICIENT = 0.3; 
+GLfloat FLOATATION_COEFFICIENT = 1.5;
+GLfloat GRAVITY_COEFFICIENT = 1.0; 
 GLfloat BALL_RADIUS = 1.0;
+GLfloat AIR_RESISTANCE_COEFFICIENT = 0.03;
+GLfloat WATER_RESISTANCE_COEFFICIENT = 0.04;
 
 
 // Lights & Materials
@@ -406,6 +409,9 @@ void keyboard( unsigned char key, int x, int y )
         up_or_down = true; //rotate right
         up_or_down_direction = 1.0f;
         break;
+    case 'b':
+        move_ball_downwards = true;
+        break;
     }
 }
 
@@ -414,6 +420,7 @@ void keyup(unsigned char key, int x, int y)
 {
     keydown = false;
     up_or_down = false;
+    move_ball_downwards = false;
 }
 
 void processSelection(int xPos, int yPos)
@@ -551,8 +558,33 @@ static void setupShaders()
     shaderProg = toon;
 }
 void moveBall(){
-    GLfloat force_coeff = 
-    ball_offset = -verts[TOTAL_I_VERTS/4+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y;
+    GLfloat force_coeff = 0.0;
+    GLfloat ammount_submerged = BALL_RADIUS - (ball_offset -  verts[TOTAL_I_VERTS/4+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y);
+    if (ammount_submerged>2)
+        ammount_submerged = 2;
+    if (ammount_submerged<0)
+    {
+        force_coeff = -GRAVITY_COEFFICIENT;
+    }
+    else{
+        force_coeff = ammount_submerged*FLOATATION_COEFFICIENT - GRAVITY_COEFFICIENT;    
+    }
+    //friction
+    if(ammount_submerged<0){
+        //case in the air
+        force_coeff -= ball_velocity*AIR_RESISTANCE_COEFFICIENT;
+    }
+    else{
+        //case in water
+        force_coeff-= ball_velocity*WATER_RESISTANCE_COEFFICIENT;
+        
+    }
+    
+    ball_velocity += force_coeff*dT*200;
+    ball_offset += ball_velocity*dT;
+    // printf("%f force coefficient\n", force_coeff);
+    // printf("%f ball_velocity\n", ball_velocity);
+    //ball_offset = -verts[TOTAL_I_VERTS/4+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y;
 
     
 }
@@ -574,7 +606,11 @@ void idle(void)
   }
   
   refreshWater(initialtime);
-  moveBall();
+  if(move_ball_downwards){
+    ball_offset -= 0.1;
+  }
+  else
+    moveBall();
   display();
 }
 
