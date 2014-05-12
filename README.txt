@@ -23,7 +23,7 @@ To use:
 'g' - (Bonus) Plasma Frag Shader
 )
 
-For our project we rendered an ocean scene with a ball that you can bounce in the middle. This ball is buoyant, in that it bobs up and down. You can hold the ball under water and simulate the buoyancy force when it's released. Also notice the sky image in the background.
+For our project we rendered an ocean scene with a ball that you can bounce in the middle. This ball is buoyant, in that it bobs up and down. You can hold the ball under water and simulate the buoyancy force when it's released. Notice that a ripple will appear when the ball hits the water again. Also notice the sky image in the background.
 
 Several techniques were employed in this project, some of which we have seen in the class, and others that we haven't seen. Of the techniques we have seen, we used the following:
 
