@@ -58,8 +58,8 @@ GLfloat ball_acceleration = 0.0;
 GLfloat FLOATATION_COEFFICIENT = 1.5;
 GLfloat GRAVITY_COEFFICIENT = 1.0; 
 GLfloat BALL_RADIUS = 1.0;
-GLfloat AIR_RESISTANCE_COEFFICIENT = 0.03;
-GLfloat WATER_RESISTANCE_COEFFICIENT = 0.04;
+GLfloat AIR_RESISTANCE_COEFFICIENT = 0.01;
+GLfloat WATER_RESISTANCE_COEFFICIENT = 0.02;
 
 
 // Lights & Materials
@@ -88,7 +88,7 @@ static GLUquadric *sphere;
 #define TOTAL_J_VERTS       140
 #define TOTAL_VERTS         TOTAL_I_VERTS*TOTAL_J_VERTS
 #define VERT_DISTANCE     0.05
-#define BODY_SCALE_FACTOR 2.0
+#define BODY_SCALE_FACTOR 7.0
 #define BODY_SIZE         TOTAL_I_VERTS*VERT_DISTANCE*BODY_SCALE_FACTOR
 #define dT 0.003f
 
@@ -297,7 +297,7 @@ void drawSelectableTeapots( void )
     
     glPushMatrix();
     {
-        glTranslatef(0,-1,0);
+        glTranslatef(0,-1.1,0);
         glTranslatef(0.0, ball_offset, 0.0);
         glMaterialfv(GL_FRONT, GL_DIFFUSE, unselectedColor);
         glLoadName(0);
@@ -555,7 +555,7 @@ static void setupShaders()
     checkbp = new GLSLProgram(checkbpVS, checkbpFS);
     tex_2d_shader = new GLSLProgram(textureVS, textureFS);
     bonus = new GLSLProgram(bonusVS, bonusFS);
-    shaderProg = toon;
+    shaderProg = blinnp;
 }
 void moveBall(){
     GLfloat force_coeff = 0.0;
@@ -580,7 +580,7 @@ void moveBall(){
         
     }
     
-    ball_velocity += force_coeff*dT*400;
+    ball_velocity += force_coeff*dT*500;
     ball_offset += ball_velocity*dT;
     // printf("%f force coefficient\n", force_coeff);
     // printf("%f ball_velocity\n", ball_velocity);
