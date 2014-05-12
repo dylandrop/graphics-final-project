@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dylandrop/Downloads/pa3_starter
+CMAKE_SOURCE_DIR = "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dylandrop/Downloads/pa3_starter/gcc-build
+CMAKE_BINARY_DIR = "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

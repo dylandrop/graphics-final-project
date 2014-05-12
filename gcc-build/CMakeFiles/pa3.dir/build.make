@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/dylandrop/Downloads/pa3_starter
+CMAKE_SOURCE_DIR = "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/dylandrop/Downloads/pa3_starter/gcc-build
+CMAKE_BINARY_DIR = "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/pa3.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/pa3.dir/flags.make
 
 CMakeFiles/pa3.dir/src/main.cpp.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/main.cpp.o: ../src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/main.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/main.cpp.o -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/main.cpp"
 
 CMakeFiles/pa3.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/main.cpp > CMakeFiles/pa3.dir/src/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/main.cpp" > CMakeFiles/pa3.dir/src/main.cpp.i
 
 CMakeFiles/pa3.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/main.cpp -o CMakeFiles/pa3.dir/src/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/main.cpp" -o CMakeFiles/pa3.dir/src/main.cpp.s
 
 CMakeFiles/pa3.dir/src/main.cpp.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/main.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/pa3.dir/src/main.cpp.o.provides.build: CMakeFiles/pa3.dir/src/main.cp
 
 CMakeFiles/pa3.dir/src/trackball.cpp.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/trackball.cpp.o: ../src/trackball.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/trackball.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/trackball.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/trackball.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/trackball.cpp.o -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.cpp"
 
 CMakeFiles/pa3.dir/src/trackball.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/trackball.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/trackball.cpp > CMakeFiles/pa3.dir/src/trackball.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.cpp" > CMakeFiles/pa3.dir/src/trackball.cpp.i
 
 CMakeFiles/pa3.dir/src/trackball.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/trackball.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/trackball.cpp -o CMakeFiles/pa3.dir/src/trackball.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.cpp" -o CMakeFiles/pa3.dir/src/trackball.cpp.s
 
 CMakeFiles/pa3.dir/src/trackball.cpp.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/trackball.cpp.o.requires
@@ -100,17 +100,17 @@ CMakeFiles/pa3.dir/src/trackball.cpp.o.provides.build: CMakeFiles/pa3.dir/src/tr
 
 CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o: ../src/GLSLProgram.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.cpp"
 
 CMakeFiles/pa3.dir/src/GLSLProgram.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/GLSLProgram.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp > CMakeFiles/pa3.dir/src/GLSLProgram.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.cpp" > CMakeFiles/pa3.dir/src/GLSLProgram.cpp.i
 
 CMakeFiles/pa3.dir/src/GLSLProgram.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/GLSLProgram.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/GLSLProgram.cpp -o CMakeFiles/pa3.dir/src/GLSLProgram.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.cpp" -o CMakeFiles/pa3.dir/src/GLSLProgram.cpp.s
 
 CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o.requires
@@ -123,17 +123,17 @@ CMakeFiles/pa3.dir/src/GLSLProgram.cpp.o.provides.build: CMakeFiles/pa3.dir/src/
 
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o: ../src/GLScreenCapturer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.cpp"
 
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp > CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.cpp" > CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.i
 
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/GLScreenCapturer.cpp -o CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.cpp" -o CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.s
 
 CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.requires
@@ -146,17 +146,17 @@ CMakeFiles/pa3.dir/src/GLScreenCapturer.cpp.o.provides.build: CMakeFiles/pa3.dir
 
 CMakeFiles/pa3.dir/src/Vector3.cpp.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/Vector3.cpp.o: ../src/Vector3.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/pa3.dir/src/Vector3.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/Vector3.cpp.o -c /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/pa3.dir/src/Vector3.cpp.o -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.cpp"
 
 CMakeFiles/pa3.dir/src/Vector3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pa3.dir/src/Vector3.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp > CMakeFiles/pa3.dir/src/Vector3.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.cpp" > CMakeFiles/pa3.dir/src/Vector3.cpp.i
 
 CMakeFiles/pa3.dir/src/Vector3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pa3.dir/src/Vector3.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/Vector3.cpp -o CMakeFiles/pa3.dir/src/Vector3.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.cpp" -o CMakeFiles/pa3.dir/src/Vector3.cpp.s
 
 CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/Vector3.cpp.o.requires
@@ -169,17 +169,17 @@ CMakeFiles/pa3.dir/src/Vector3.cpp.o.provides.build: CMakeFiles/pa3.dir/src/Vect
 
 CMakeFiles/pa3.dir/src/SOIL.c.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/SOIL.c.o: ../src/SOIL.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/SOIL.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/SOIL.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/SOIL.c.o   -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/SOIL.c"
 
 CMakeFiles/pa3.dir/src/SOIL.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/SOIL.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c > CMakeFiles/pa3.dir/src/SOIL.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/SOIL.c" > CMakeFiles/pa3.dir/src/SOIL.c.i
 
 CMakeFiles/pa3.dir/src/SOIL.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/SOIL.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/SOIL.c -o CMakeFiles/pa3.dir/src/SOIL.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/SOIL.c" -o CMakeFiles/pa3.dir/src/SOIL.c.s
 
 CMakeFiles/pa3.dir/src/SOIL.c.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/SOIL.c.o.requires
@@ -192,17 +192,17 @@ CMakeFiles/pa3.dir/src/SOIL.c.o.provides.build: CMakeFiles/pa3.dir/src/SOIL.c.o
 
 CMakeFiles/pa3.dir/src/image_helper.c.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/image_helper.c.o: ../src/image_helper.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/image_helper.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_helper.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_helper.c.o   -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_helper.c"
 
 CMakeFiles/pa3.dir/src/image_helper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/image_helper.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c > CMakeFiles/pa3.dir/src/image_helper.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_helper.c" > CMakeFiles/pa3.dir/src/image_helper.c.i
 
 CMakeFiles/pa3.dir/src/image_helper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/image_helper.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/image_helper.c -o CMakeFiles/pa3.dir/src/image_helper.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_helper.c" -o CMakeFiles/pa3.dir/src/image_helper.c.s
 
 CMakeFiles/pa3.dir/src/image_helper.c.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/image_helper.c.o.requires
@@ -215,17 +215,17 @@ CMakeFiles/pa3.dir/src/image_helper.c.o.provides.build: CMakeFiles/pa3.dir/src/i
 
 CMakeFiles/pa3.dir/src/image_DXT.c.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/image_DXT.c.o: ../src/image_DXT.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/image_DXT.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_DXT.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/image_DXT.c.o   -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_DXT.c"
 
 CMakeFiles/pa3.dir/src/image_DXT.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/image_DXT.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c > CMakeFiles/pa3.dir/src/image_DXT.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_DXT.c" > CMakeFiles/pa3.dir/src/image_DXT.c.i
 
 CMakeFiles/pa3.dir/src/image_DXT.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/image_DXT.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/image_DXT.c -o CMakeFiles/pa3.dir/src/image_DXT.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/image_DXT.c" -o CMakeFiles/pa3.dir/src/image_DXT.c.s
 
 CMakeFiles/pa3.dir/src/image_DXT.c.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/image_DXT.c.o.requires
@@ -238,17 +238,17 @@ CMakeFiles/pa3.dir/src/image_DXT.c.o.provides.build: CMakeFiles/pa3.dir/src/imag
 
 CMakeFiles/pa3.dir/src/stb_image_aug.c.o: CMakeFiles/pa3.dir/flags.make
 CMakeFiles/pa3.dir/src/stb_image_aug.c.o: ../src/stb_image_aug.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles" $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/pa3.dir/src/stb_image_aug.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/stb_image_aug.c.o   -c /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/pa3.dir/src/stb_image_aug.c.o   -c "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/stb_image_aug.c"
 
 CMakeFiles/pa3.dir/src/stb_image_aug.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pa3.dir/src/stb_image_aug.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c > CMakeFiles/pa3.dir/src/stb_image_aug.c.i
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/stb_image_aug.c" > CMakeFiles/pa3.dir/src/stb_image_aug.c.i
 
 CMakeFiles/pa3.dir/src/stb_image_aug.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pa3.dir/src/stb_image_aug.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/dylandrop/Downloads/pa3_starter/src/stb_image_aug.c -o CMakeFiles/pa3.dir/src/stb_image_aug.c.s
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/stb_image_aug.c" -o CMakeFiles/pa3.dir/src/stb_image_aug.c.s
 
 CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires:
 .PHONY : CMakeFiles/pa3.dir/src/stb_image_aug.c.o.requires
@@ -284,7 +284,7 @@ pa3: CMakeFiles/pa3.dir/src/image_helper.c.o
 pa3: CMakeFiles/pa3.dir/src/image_DXT.c.o
 pa3: CMakeFiles/pa3.dir/src/stb_image_aug.c.o
 pa3: CMakeFiles/pa3.dir/build.make
-pa3: /usr/local/lib/libGLEW.dylib
+pa3: /opt/local/lib/libGLEW.dylib
 pa3: CMakeFiles/pa3.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable pa3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pa3.dir/link.txt --verbose=$(VERBOSE)
@@ -309,6 +309,6 @@ CMakeFiles/pa3.dir/clean:
 .PHONY : CMakeFiles/pa3.dir/clean
 
 CMakeFiles/pa3.dir/depend:
-	cd /Users/dylandrop/Downloads/pa3_starter/gcc-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/dylandrop/Downloads/pa3_starter /Users/dylandrop/Downloads/pa3_starter /Users/dylandrop/Downloads/pa3_starter/gcc-build /Users/dylandrop/Downloads/pa3_starter/gcc-build /Users/dylandrop/Downloads/pa3_starter/gcc-build/CMakeFiles/pa3.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build" "/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/gcc-build/CMakeFiles/pa3.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/pa3.dir/depend
 

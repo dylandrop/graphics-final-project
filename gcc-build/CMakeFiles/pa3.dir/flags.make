@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -O3 -DNDEBUG -I/System/Library/Frameworks/GLUT.framework/Headers -I/usr/local/include    -Wno-deprecated
+C_FLAGS = -O3 -DNDEBUG -I/System/Library/Frameworks/GLUT.framework/Headers -I/opt/local/include    -Wno-deprecated
 
 C_DEFINES = 
 
-CXX_FLAGS = -O3 -DNDEBUG -I/System/Library/Frameworks/GLUT.framework/Headers -I/usr/local/include    -Wno-deprecated
+CXX_FLAGS = -O3 -DNDEBUG -I/System/Library/Frameworks/GLUT.framework/Headers -I/opt/local/include    -Wno-deprecated
 
 CXX_DEFINES = 
 
