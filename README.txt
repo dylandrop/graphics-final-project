@@ -1,27 +1,32 @@
-Dylan Drop
-dhd2110
+Dylan Drop, Dobri Dobrev
+dhd2110 dmd2119
 =======
 
 To run:
 
-cd cmake && make && ./pa3
+mkdir gcc-build && cd gcc-build
+cp ../storm.jpg .
+cmake .. && make && ./pa3
 
 To use:
-
-'a' - Toon shader
-'s' - Gourand shader (http://en.wikipedia.org/wiki/Phong_reflection_model)
-'d' - Blinn-Phong (this is almost identical to Gourand, but uses a different
-inner product [N dot M])
-'f' - Checkerboard Blinn-Phong (this is almost identical to the previous, 
-but has a FS that chooses a color modulo 2 according to frag position)
-'g' - (Bonus) Plasma Frag Shader 
-
-[Screenshots of each shader are in the parent directory in png format]
 
 ',' - Turn camera left
 '.' - Turn camera right
 
-Bonus explanation - I found out I could achieve a simple but interesting 
-plasma effect if I mixed and matched the sin and cos equations applied to
-a fragment's location + the glMultiTexCoord. Adding time into the equation
-makes things more interesting, as you can see in the video.
+For our project we rendered an ocean scene with a ball that you can bounce in the middle. This ball is buoyant, in that it bobs up and down. Also notice the sky image in the background.
+
+Several techniques were employed in this project, some of which we have seen in the class, and others that we haven't seen. Of the techniques we have seen, we used the following:
+
+• Blinn-Phong shading (on the ball)
+• Texture mapping (the sky in the background)
+• Various techniques regarding the representation of vertices as triangles
+
+In addition, we also used Heightfield approximations for our water body, as explaned in this paper:
+
+http://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf
+
+Basically, this uses the idea of having certain excited points which can ripple out to the points around it by applying the equation
+
+this.height = sum(neighbors.height) - this.height * 4
+
+Thus, you can easily see how on each iteration, the height of a specific point would flow out to its neighboring points. All that was left was to set certain points as "jump" points, in other words points that started with an increased height and bounced up and down according to a sine wave function.

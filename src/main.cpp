@@ -100,10 +100,11 @@ bool jump = true;
 
 Vertex3 * verts;
 
-
 void initWater()
 {
+    //the array of all the vertices themselves
     verts = new Vertex3[TOTAL_VERTS];
+    //indices of all the vertices
     vIdxs = new GLuint[(TOTAL_VERTS - (TOTAL_I_VERTS + TOTAL_J_VERTS - 1))*6]; 
     int count = 0;
     for (int i = 0; i < TOTAL_I_VERTS; i++) {
@@ -117,7 +118,7 @@ void initWater()
 
             if ((i < TOTAL_I_VERTS-1) && (j < TOTAL_J_VERTS-1))
             {
-
+                //Make a triangle with the neighboring points
                 vIdxs[count++] = thisVert;
                 vIdxs[count++] = thisVert + 1;
                 vIdxs[count++] = thisVert + TOTAL_I_VERTS + 1;
@@ -129,11 +130,20 @@ void initWater()
 
         }
     }
+    
+    // verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2+3].jump = true;
+    // verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2+3].jumpAmt = 0.8;
+    // verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2+3].jumpFreq = 100;
 
+    //Excite the far edge and the right edge in the form of a sine wave.
+    //The sin(i/PIPIPI) makes the exciters a smooth sine wave, sort of
+    //like an ocean wave.
     for(int i = 0; i < TOTAL_I_VERTS - 2; i++) {
+      //far edge
       verts[i+135*TOTAL_I_VERTS].jump = true;
       verts[i+135*TOTAL_I_VERTS].jumpAmt = 0.3f*sin(i/(PI*PI*PI));
       verts[i+135*TOTAL_I_VERTS].jumpFreq = 10.0f*sin(i/(PI*PI*PI)) + 10.0f;
+      //right edge
       verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jump = true;
       verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpAmt = 0.41f*sin(i/(PI*PI*PI));
       verts[TOTAL_I_VERTS-2+TOTAL_J_VERTS*i].jumpFreq = 8.7f*sin(i/(PI*PI*PI)) + 11.1f;
@@ -141,6 +151,7 @@ void initWater()
     indexCount = count;
 }
 
+//incrementally update the water
 void refreshWater(float time)
 {
   for (int i = 0; i < TOTAL_I_VERTS; i++) 
@@ -149,8 +160,11 @@ void refreshWater(float time)
     {
       int thisVert = i+j*TOTAL_I_VERTS;
 
+      //Handles the position of points that should be exciting the 
+      //water around them.
       if ((verts[thisVert].jump) && jump) {
         verts[thisVert].newY = verts[thisVert].jumpAmt * sin(time*verts[thisVert].jumpFreq);
+        //Cut them off if it's been enough time since the start of the program.
         if(time > 2.0f) {
           verts[thisVert].jumpAmt *= 0.5;
         }
@@ -159,7 +173,10 @@ void refreshWater(float time)
       if ((j==TOTAL_J_VERTS-1) || (j==0) || (i==TOTAL_I_VERTS-1) || (i==0))
         continue;
       else
-      {                
+      {
+        //Average over your neighbor's distance, subtract 4 times your current distance/
+        //Discussed in http://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf
+        //(Heightfield approximations)
         GLfloat horizOffset = verts[thisVert-1].y + verts[thisVert+1].y;
         GLfloat vertOffset = verts[thisVert-TOTAL_I_VERTS].y + verts[thisVert+TOTAL_I_VERTS].y;
         GLfloat currentOffset = 4 * verts[thisVert].y;
@@ -176,7 +193,8 @@ void refreshWater(float time)
     for (int j = 0; j < TOTAL_J_VERTS; j++) 
     {
       int thisVert = i+j*TOTAL_I_VERTS;
-
+      //Assign the height here as to not screw up the calculations of the
+      //neighbors' new Y position.
       verts[thisVert].y = verts[thisVert].newY;
 
       Vector3 u,v;
@@ -186,12 +204,15 @@ void refreshWater(float time)
       int upVert = thisVert - TOTAL_I_VERTS;
       int downVert = thisVert + TOTAL_I_VERTS;
 
+      //The horizontal vector
       u = Vector3::Make(verts[leftVert].x, verts[leftVert].y, verts[leftVert].z) -
         Vector3::Make(verts[rightVert].x, verts[rightVert].y, verts[rightVert].z);
 
+      //The vertical vector
       v = Vector3::Make(verts[upVert].x, verts[upVert].y, verts[upVert].z) - 
         Vector3::Make(verts[downVert].x, verts[downVert].y, verts[downVert].z);
 
+      //The normal is approximately the cross product of these two vectors
       Vector3 norm = Vector3::Norm(Vector3::Cross(&u,&v));
 
       verts[thisVert].nX = norm.x; verts[thisVert].nY = norm.y; verts[thisVert].nZ = norm.z;

@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.cpp
+/Users/dylandrop/Downloads/graphics-final-project/src/GLSLProgram.cpp
 GLSLProgram.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLSLProgram.h
 assert.h
 -
 utils/macros.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/utils/macros.h
+/Users/dylandrop/Downloads/graphics-final-project/src/utils/macros.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLSLProgram.h
 cstdio
 -
 cstdlib
@@ -22,9 +22,9 @@ cstdlib
 GL/glew.h
 -
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.cpp
+/Users/dylandrop/Downloads/graphics-final-project/src/GLScreenCapturer.cpp
 GLScreenCapturer.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLScreenCapturer.h
 cstring
 -
 cstdarg
@@ -38,9 +38,9 @@ GL/glut.h
 fstream
 -
 utils/macros.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/utils/macros.h
+/Users/dylandrop/Downloads/graphics-final-project/src/utils/macros.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLScreenCapturer.h
 stdint.h
 -
 OpenGL/gl.h
@@ -48,13 +48,13 @@ OpenGL/gl.h
 GL/glut.h
 -
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/SOIL.h
+/Users/dylandrop/Downloads/graphics-final-project/src/SOIL.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.cpp
+/Users/dylandrop/Downloads/graphics-final-project/src/Vector3.cpp
 Vector3.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.h
+/Users/dylandrop/Downloads/graphics-final-project/src/Vector3.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.h
+/Users/dylandrop/Downloads/graphics-final-project/src/Vector3.h
 math.h
 -
 GLUT/glut.h
@@ -62,13 +62,13 @@ GLUT/glut.h
 GL/glut.h
 -
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vertex3.h
+/Users/dylandrop/Downloads/graphics-final-project/src/Vertex3.h
 GLUT/glut.h
 -
 GL/glut.h
 -
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/main.cpp
+/Users/dylandrop/Downloads/graphics-final-project/src/main.cpp
 stdlib.h
 -
 stdio.h
@@ -80,19 +80,19 @@ GLUT/glut.h
 GL/glut.h
 -
 GLScreenCapturer.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLScreenCapturer.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLScreenCapturer.h
 trackball.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.h
+/Users/dylandrop/Downloads/graphics-final-project/src/trackball.h
 shader.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/shader.h
+/Users/dylandrop/Downloads/graphics-final-project/src/shader.h
 iostream
 -
 vector
 -
 Vector3.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vector3.h
+/Users/dylandrop/Downloads/graphics-final-project/src/Vector3.h
 Vertex3.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/Vertex3.h
+/Users/dylandrop/Downloads/graphics-final-project/src/Vertex3.h
 math.h
 -
 time.h
@@ -100,13 +100,13 @@ time.h
 stdlib.h
 -
 GLSLProgram.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/GLSLProgram.h
+/Users/dylandrop/Downloads/graphics-final-project/src/GLSLProgram.h
 SOIL.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/SOIL.h
+/Users/dylandrop/Downloads/graphics-final-project/src/SOIL.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/shader.h
+/Users/dylandrop/Downloads/graphics-final-project/src/shader.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.cpp
+/Users/dylandrop/Downloads/graphics-final-project/src/trackball.cpp
 GLUT/glut.h
 -
 GL/glut.h
@@ -116,15 +116,15 @@ math.h
 assert.h
 -
 trackball.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.h
+/Users/dylandrop/Downloads/graphics-final-project/src/trackball.h
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/trackball.h
+/Users/dylandrop/Downloads/graphics-final-project/src/trackball.h
 GLUT/glut.h
 -
 GL/glut.h
 -
 
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/utils/macros.h
+/Users/dylandrop/Downloads/graphics-final-project/src/utils/macros.h
 stdio.h
 -
 stdlib.h
@@ -132,9 +132,9 @@ stdlib.h
 assert.h
 -
 conts-config.h
-/Users/dobridobrev/Documents/senior year/sem2/graphics/final_project/proj2/graphics-final-project/src/utils/conts-config.h
+/Users/dylandrop/Downloads/graphics-final-project/src/utils/conts-config.h
 
-/opt/local/include/GL/glew.h
+/usr/local/include/GL/glew.h
 stddef.h
 -
 inttypes.h

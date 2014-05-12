@@ -2,25 +2,30 @@
 
 Vector3 Vector3::Make(GLfloat x, GLfloat y, GLfloat z)
 {
+  Vector3 p;
+  p.x = x; p.y = y; p.z = z;
+  return p;
+}
+GLfloat Vector3::Length(Vector3 * p)
+{
+  //normal length of a vector 
+  return (GLfloat)(sqrt(p->x*p->x + p->y*p->y + p->z*p->z));  
+}
+
+//Cross product of p and q
+Vector3 Vector3::Cross(Vector3 * p, Vector3 * q)
+{
   Vector3 t;
-  t.x = x; t.y = y; t.z = z;
+  t.x = p->y*q->z - p->z*q->y; t.y = p->z*q->x - p->x*q->z; t.z = p->x*q->y - p->y*q->x;
   return t;
 }
-GLfloat Vector3::Length(Vector3 * v)
+//The normalized vector should be this vector
+//normalized by its length
+Vector3 Vector3::Norm(Vector3 p)
 {
-  return (GLfloat)(sqrt(v->x*v->x+v->y*v->y+v->z*v->z));  
-}
-Vector3 Vector3::Cross(Vector3 * u, Vector3 * v)
-{
-  Vector3 t;
-  t.x = u->y*v->z - u->z*v->y; t.y = u->z*v->x - u->x*v->z; t.z = u->x*v->y - u->y*v->x;
-  return t;
-}
-Vector3 Vector3::Norm(Vector3 v)
-{
-  float l = Length(&v);
+  float l = Length(&p);
   if (l == 0.0f) return Make(0.0f,0.0f,0.0f);
   Vector3 t;
-  t.x = v.x / l; t.y = v.y / l; t.z = v.z / l;
+  t.x = p.x / l; t.y = p.y / l; t.z = p.z / l;
   return t;
 }
