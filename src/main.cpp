@@ -60,7 +60,9 @@ GLfloat GRAVITY_COEFFICIENT = 1.0;
 GLfloat BALL_RADIUS = 1.0;
 GLfloat AIR_RESISTANCE_COEFFICIENT = 0.01;
 GLfloat WATER_RESISTANCE_COEFFICIENT = 0.02;
-
+bool out_of_water = false;
+bool center_exciter_on = false;
+GLfloat time_of_reenter_ripple = 0.0;
 
 // Lights & Materials
 GLfloat ambient[] = {0.2, 0.2, 0.2, 1.0};
@@ -138,6 +140,7 @@ void initWater()
     //Excite the far edge and the right edge in the form of a sine wave.
     //The sin(i/PIPIPI) makes the exciters a smooth sine wave, sort of
     //like an ocean wave.
+
     for(int i = 0; i < TOTAL_I_VERTS - 2; i++) {
       //far edge
       verts[i+135*TOTAL_I_VERTS].jump = true;
@@ -580,15 +583,35 @@ static void setupShaders()
 }
 void moveBall(){
     GLfloat force_coeff = 0.0;
-    GLfloat ammount_submerged = BALL_RADIUS - (ball_offset -  verts[TOTAL_I_VERTS/4+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y);
+    GLfloat ammount_submerged = BALL_RADIUS - (ball_offset -  verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].y);
     if (ammount_submerged>2)
         ammount_submerged = 2;
     if (ammount_submerged<0)
     {
         force_coeff = -GRAVITY_COEFFICIENT;
+        out_of_water = true;
     }
     else{
+        if(out_of_water && !center_exciter_on){
+            center_exciter_on = true;
+            verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jump = true;
+            if(initialtime>2.0){
+                verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jumpAmt = 0.8;
+                verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jumpFreq = 100.;
+            }
+            else{
+                verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jumpAmt = 0.4;
+                verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jumpFreq = 100.;    
+            }
+            
+        }
         force_coeff = ammount_submerged*FLOATATION_COEFFICIENT - GRAVITY_COEFFICIENT;    
+    }
+    if (ammount_submerged>0.6){
+        out_of_water = false;
+        center_exciter_on = false;
+        verts[TOTAL_I_VERTS/2+ TOTAL_J_VERTS*TOTAL_I_VERTS/2].jump = false;
+
     }
     //friction
     if(ammount_submerged<0){
